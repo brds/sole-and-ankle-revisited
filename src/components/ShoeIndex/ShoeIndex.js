@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
-
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
 import Spacer from '../Spacer';
@@ -35,7 +33,6 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             Shoes
           </Breadcrumbs.Crumb>
         </Breadcrumbs>
-        <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
     </Wrapper>
@@ -47,10 +44,17 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+  @media ${props => props.theme.queries.maxTablet} {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+  @media ${props => props.theme.queries.maxTablet} {
+    flex-basis: 1rem;
+  }
 `;
 
 const MainColumn = styled.div`
@@ -65,7 +69,7 @@ const Header = styled.header`
 
 const Title = styled.h2`
   font-size: 1.5rem;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weight-medium);
 `;
 
 export default ShoeIndex;
