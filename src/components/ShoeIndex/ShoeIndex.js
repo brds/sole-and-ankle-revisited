@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     flex-direction: column-reverse;
     gap: 8px;
   }
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     flex-basis: 1rem;
   }
 `;

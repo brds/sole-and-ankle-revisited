@@ -15,9 +15,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -26,22 +26,21 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side>
-          <MobileActions>
-            <UnstyledButton>
-              <VisuallyHidden>Visit Shopping Cart</VisuallyHidden>
-              <Icon id="shopping-bag" strokeWidth={1} />
-            </UnstyledButton>
-            <UnstyledButton>
-              <VisuallyHidden>Search</VisuallyHidden>
-              <Icon id="search" strokeWidth={1} />
-            </UnstyledButton>
-            <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-              <VisuallyHidden>Open Menu</VisuallyHidden>
-              <Icon id="menu" strokeWidth={1} />
-            </UnstyledButton>
-          </MobileActions>
-        </Side>
+        <Filler />
+        <MobileActions>
+          <UnstyledButton>
+            <VisuallyHidden>Visit Shopping Cart</VisuallyHidden>
+            <Icon id="shopping-bag" strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <VisuallyHidden>Search</VisuallyHidden>
+            <Icon id="search" strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <VisuallyHidden>Open Menu</VisuallyHidden>
+            <Icon id="menu" strokeWidth={1} />
+          </UnstyledButton>
+        </MobileActions>
       </MainHeader>
 
       <MobileMenu
@@ -56,7 +55,6 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid var(--color-gray-300);
 
   max-width: 100%;
@@ -68,11 +66,12 @@ const MainHeader = styled.div`
     3rem
   );
 
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     align-items: center;
     padding-right: 24px;
+    border-top: 4px solid var(--color-gray-900);
   }
-  @media ${props => props.theme.queries.maxPhone} {
+  @media ${props => props.theme.queries.phoneAndSmaller} {
     padding-inline: 16px;
   }
 `;
@@ -80,7 +79,6 @@ const MainHeader = styled.div`
 const Nav = styled.nav`
   display: flex;
 
-  /* gap: 48px; */
   gap: clamp(
     1rem,
     11.7vw - 5.25rem,
@@ -88,24 +86,37 @@ const Nav = styled.nav`
   );
 
   margin: 0px 48px;
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     display: none;
   }
 `;
 
-const Side = styled.div`
+const LogoWrapper = styled.div`
   flex: 1;
+
+  @media ${props => props.theme.queries.tabletAndSmaller} {
+    flex: revert;
+    margin-right: auto;
+  }
+`;
+
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${props => props.theme.queries.tabletAndSmaller} {
+    display: none;
+  }
 `;
 
 const MobileActions = styled.div`
   display: none;
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 32px;
   }
-  @media ${props => props.theme.queries.maxPhone} {
+  @media ${props => props.theme.queries.phoneAndSmaller} {
     gap: 16px;
   }
 `;

@@ -1,7 +1,7 @@
 export const THEME = {
   queries: {
-    maxLaptop: `(max-width: ${1300 / 16}rem)`,
-    maxTablet: `(max-width: ${950  / 16}rem)`,
-    maxPhone: `(max-width: ${600   / 16}rem)`,
+    laptopAndSmaller: `(max-width: ${1300 / 160}rem)`,
+    tabletAndSmaller: `(max-width: ${950  / 160}rem)`,
+    phoneAndSmaller: `(max-width: ${600   / 160}rem)`,
   },
 };

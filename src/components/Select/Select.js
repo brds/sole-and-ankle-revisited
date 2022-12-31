@@ -34,7 +34,7 @@ const Select = ({ label, value, children, ...delegated }) => {
 const Wrapper = styled.label`
   display: flex;
   align-items: baseline;
-  @media ${props => props.theme.queries.maxPhone} {
+  @media ${props => props.theme.queries.phoneAndSmaller} {
     display: none;
   }
 `;

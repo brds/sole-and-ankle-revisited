@@ -23,7 +23,7 @@ const Sidebar = () => {
 
 const Wrapper = styled.aside`
   margin-top: 42px;
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     display: none;
   }
 `;

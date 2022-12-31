@@ -22,10 +22,10 @@ const App = () => {
 
 const Main = styled.main`
   padding: 64px 32px;
-  @media ${props => props.theme.queries.maxTablet} {
+  @media ${props => props.theme.queries.tabletAndSmaller} {
     padding-block: 48px;
   }
-  @media ${props => props.theme.queries.maxPhone} {
+  @media ${props => props.theme.queries.phoneAndSmaller} {
     padding-inline: 16px;
   }
 `;
